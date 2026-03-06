@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundSteps - Practise Speech Sounds at Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #5CA8E8;
+            --primary-orange: #EB7457;
+            --bg-cream: #FDF9F4;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --footer-bg: #1B232E;
+            --card-white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-cream);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .btn-blue {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-orange {
+            background-color: var(--primary-orange);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content span {
+            color: var(--primary-blue);
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin: 80px 0 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Icons & Details */
+        .intro-section {
+            display: flex;
+            background: #E8F4F8;
+            padding: 60px;
+            border-radius: 30px;
+            margin-top: 100px;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* How it Works */
+        .steps-container {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .step-circle {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Forms */
+        .form-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--footer-bg);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 100px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .hero { text-align: center; }
+            nav { display: none; } /* Mobile menu toggle would go here */
+            .intro-section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo">SoundSteps</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">The Problem</a>
+            <a href="#">How it Works</a>
+            <a href="#">Why Us</a>
+            <a href="#">Contact Us</a>
+        </nav>
+        <a href="#" class="btn-blue">Join Waitlist</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p style="color: var(--primary-blue); font-weight: 600;">Welcome to SoundSteps</p>
+            <h1>Helping Families Practise Speech <span>Sounds at Home</span></h1>
+            <p>SoundSteps empowers parents with tools and guidance to support their child's speech development journey through fun, effective daily practice.</p>
+            <a href="#" class="btn-orange">Join Early Access</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://www.tipofthetonguerehab.com/wp-content/uploads/2025/09/speech-therapy-games-for-kids-4.jpg" alt="Helping Families Practise Speech Sounds at Home" style="width: 100%; border-radius: 20px;">
+        </div>
+    </section>
+
+    <section id="problem">
+        <div class="section-title">
+            <p style="color: var(--primary-orange); font-weight: 600;">The Problem We Solve</p>
+            <h2>The Challenge Parents Face</h2>
+            <p>Waiting lists for speech therapy can be long, and home practice is often overwhelming.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="stat-card">
+                <h3>Long Waiting Lists</h3>
+                <p>Families often wait 12+ months for clinical intervention.</p>
+            </div>
+            <div class="stat-card">
+                <h3>High Costs</h3>
+                <p>Private therapy sessions can be expensive for regular practice.</p>
+            </div>
+            <div class="stat-card">
+                <h3>Lack of Resources</h3>
+                <p>Finding the right materials to use at home is difficult.</p>
+            </div>
+        </div>
+    </section>
+    <section class="intro-section">
+        <div style="flex: 1;">
+            <p style="color: var(--primary-blue); font-weight: 600;">Our Solution</p>
+            <h2>Introducing SoundSteps</h2>
+            <p>A mobile platform designed to bridge the gap between clinical sessions and home life.</p>
+            <ul style="list-style: none; margin-top: 20px;">
+                <li>✅ Expert-led activities</li>
+                <li>✅ Progress tracking</li>
+                <li>✅ Engaging for kids</li>
+            </ul>
+        </div>
+        <div style="flex: 1; text-align: center;">
+             <img src="https://www.updox.com/wp-content/uploads/ELDERLY-MAN-ON-PHONE-WITH-DOCTOR-WITH-WIFE-IN-BACKGROUND-1024x539.jpg" alt="Mobile Mockup" style="max-width: 500px; background: white; padding: 1px; border-radius: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+             <p style="font-size: 0.8rem; margin-top: 10px; color: var(--text-muted);">App Interface Preview</p>
+        </div>
+    </section>
+
+    <!-- <section class="intro-section">
+        <div style="flex: 1;">
+            <p style="color: var(--primary-blue); font-weight: 600;">Our Solution</p>
+            <h2>Introducing SoundSteps</h2>
+            <p>A mobile platform designed to bridge the gap between clinical sessions and home life.</p>
+            <ul style="list-style: none; margin-top: 20px;">
+                <li>✅ Expert-led activities</li>
+                <li>✅ Progress tracking</li>
+                <li>✅ Engaging for kids</li>
+            </ul>
+        </div>
+        <div style="flex: 1; text-align: center;">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAUCAYAAAB9789IAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAM0lEQVQ4y2NgGAWjYBSMAlBAZWRk/A8TAwN5mshSREgjWYoIaSRLESCNZCkCpJEsRQAAXNoCDvP6v48AAAAASUVORK5CYII=" alt="Mobile Mockup" style="max-width: 250px; background: white; padding: 20px; border-radius: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+             <p style="font-size: 0.8rem; margin-top: 10px; color: var(--text-muted);">App Interface Preview</p>
+        </div>
+    </section> -->
+
+    <section>
+        <div class="section-title">
+            <h2>How SoundSteps Works:</h2>
+        </div>
+        <div class="steps-container">
+            <div><div class="step-circle">👂</div><p>Record</p></div>
+            <div><div class="step-circle">🗣️</div><p>Listen</p></div>
+            <div><div class="step-circle">👍</div><p>Compare</p></div>
+            <div><div class="step-circle">🎤</div><p>Feedback</p></div>
+            <div><div class="step-circle">📈</div><p>Results</p></div>
+        </div>
+    </section>
+
+    <section id="join">
+        <div class="section-title">
+            <h2>Join the Early Access Group</h2>
+            <p>Get exclusive early access and help us shape the future of speech therapy.</p>
+        </div>
+        <div class="form-section">
+            <form>
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <label>Child's Name</label>
+                    <input type="text" placeholder="Child's Name">
+                </div>
+                <div class="form-group">
+                    <label>Child's Age</label>
+                    <select>
+                        <option>2-4 years</option>
+                        <option>5-7 years</option>
+                        <option>8+ years</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="email@example.com">
+                </div>
+                <button type="submit" class="btn-orange" style="width: 100%; border: none; cursor: pointer;">Get Early Access</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+        </div>
+        <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <p><strong>Email:</strong> hello@soundsteps.com</p>
+                <p><strong>Phone:</strong> +44 123 456 789</p>
+                <div style="height:300px; border-radius:15px; overflow:hidden; margin-top:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2488.6310831547193!2d-0.13047328458586888!3d51.50072987963452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761bcd84dd6bbd%3A0x9f4877a3309f9235!2sSoundsteps%20Music%20School!5e0!3m2!1sen!2s!4v1707110000000!5m2!1sen!2s"
+        style="width:100%; height:100%; border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        title="Soundsteps Music School, United Kingdom">
+    </iframe>
+</div>
+                <!-- <div style="height:300px; border-radius:15px; overflow:hidden; margin-top:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.353383504362!2d0.5390196159271105!3d51.29211947961117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df3268601eec5d%3A0x36d98ed0229e5433!2sSt.%20Paul%27s%20Scout%20Hut!5e0!3m2!1sen!2s!4v1707112345678!5m2!1sen!2s"
+        style="width:100%; height:100%; border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="St. Paul’s Scout Hut Location">
+    </iframe>
+</div> -->
+                <!-- <div style="height:200px; border-radius:15px; margin-top:20px; overflow:hidden;">
+    <iframe
+        src="https://www.google.com/maps/place/St.+Paul%27s+Scout+Hut/@51.298154,0.513565,15z/data=!4m6!3m5!1s0x47df3268601eec5d:0x36d98ed0229e5433!8m2!3d51.2921195!4d0.541208!16s%2Fg%2F11c0vj_y88?hl=en&output=embed"
+        style="width:100%; height:100%; border:0;"
+        loading="lazy"
+        title="St. Paul’s Scout Hut Location">
+    </iframe>
+</div> -->
+                <!-- <div style="height:200px; border-radius:15px; margin-top:20px; overflow:hidden;">
+    <iframe
+        src="https://www.google.com/maps?q=Soundsteps%20Music%20School%20United%20Kingdom&hl=en&z=15&output=embed"
+        style="width:100%; height:100%; border:0;"
+        loading="lazy"
+        title="Soundsteps Music School Location">
+    </iframe>
+</div>
+        -->         <!-- <div style="height:200px; border-radius:15px; margin-top:20px; overflow:hidden;">
+    <iframe
+        src="https://maps.google.com/maps?q=Soundsteps%20Music%30School%20United%20Kingdom&hl=en&z=15&output=embed"
+        style="width:100%; height:100%; border:0;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Soundsteps Music School Location">
+    </iframe>
+</div>
+        -->         <!-- <div style="height:200px; border-radius:15px; margin-top:20px; overflow:hidden;">
+    <iframe
+        src="https://maps.google.com/maps?hl=en&q=Soundsteps Music School United Kingdom&z=15&output=embed"
+        style="width:100%; height:100%; border:0;"
+        loading="lazy"
+        title="Soundsteps Music School Location">
+    </iframe>
+</div> -->
+                <<!-- div style="height:200px; border-radius:15px; margin-top:20px; overflow:hidden;">
+    <iframe
+        src="https://maps.google.com/maps?q=23.8103,90.4125&z=15&hl=en&output=embed"
+        style="width:100%; height:100%; border:0;"
+        loading="lazy">
+    </iframe>
+</div> -->
+                
+                <!-- <div style="height: 200px; background: #eee; border-radius: 15px; margin-top: 20px; display: flex; align-items: center; justify-content: center;">
+                    [Map Placeholder]
+                </div> -->
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <form>
+                    <input type="text" placeholder="Your Name">
+                    <input type="email" placeholder="Your Email">
+                    <textarea rows="4" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn-blue" style="border: none; margin-top: 10px; cursor: pointer;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">SoundSteps</div>
+                <p style="color: #ccc; font-size: 0.9rem;">Helping families grow together through better communication.</p>
+            </div>
+            <div class="footer-links">
+                <strong>Company</strong>
+                <a href="#">About Us</a>
+                <a href="#">Our Team</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-links">
+                <strong>Support</strong>
+                <a href="#">FAQ</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+        <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
+        <p style="text-align: center; font-size: 0.8rem; color: #777;">&copy; 2026 SoundSteps. All rights reserved developed by Zannatul.</p>
+    </div>
+</footer>
+
+</body>
+</html>
